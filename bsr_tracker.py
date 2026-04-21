@@ -1,6 +1,7 @@
 import os
 import json
 import keepa
+import time
 from datetime import datetime
 import gspread
 from gspread.utils import rowcol_to_a1
@@ -315,6 +316,7 @@ def update_sheet(gc, asin, domain, data):
         {"range": f"{rowcol_to_a1(asin_row + 4, date_col)}", "values": [[main_bsr_str]]},
         {"range": f"{rowcol_to_a1(asin_row + 5, date_col)}", "values": [[sub_bsr_str]]},
     ]
+    time.sleep(2)
     ws.batch_update(updates)
 
     print(f"✅ Sheet updated for {asin}")
