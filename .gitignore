@@ -1,0 +1,4 @@
+.env
+debug_output.json
+credentials.json
+credentials.json.enc
