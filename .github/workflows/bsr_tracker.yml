@@ -21,7 +21,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install keepa requests
+        run: pip install keepa requests gspread google-auth
 
       - name: Restore previous BSR data
         run: |
@@ -34,7 +34,8 @@ jobs:
       - name: Run BSR tracker
         env:
           KEEPA_API_KEY: ${{ secrets.KEEPA_API_KEY }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+          GOOGLE_CREDENTIALS: ${{ secrets.GOOGLE_CREDENTIALS }}
         run: python bsr_tracker.py
 
       - name: Save updated BSR data back to repo

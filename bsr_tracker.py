@@ -7,7 +7,7 @@ from gspread.utils import rowcol_to_a1
 from google.oauth2.service_account import Credentials
 
 # --- CONFIG ---
-KEEPA_API_KEY = "ka96teo55ufje39dg1voj24dlpro1ofuc3er4oidvt2s0fmsmgovk19eu1q5epre"
+KEEPA_API_KEY = os.environ.get("KEEPA_API_KEY")
 SHEET_ID = os.environ.get("SHEET_ID", "1B_ZGYEJADFpB90kVX5Ix6LudOgYleca6OJOFZs70sGU")
 DATA_FILE = "bsr_data.json"
 
